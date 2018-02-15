@@ -1,0 +1,37 @@
+﻿@model WebApplication1.Models.usuarios
+
+<head>
+    @{
+        ViewBag.Title = "Home Page";
+    }
+</head>
+
+<h2>Bienvenidos</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Get))
+{
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.nameuser, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.nameuser, new { htmlAttributes = new { @class = "form-control" , @placeholder = "Nombre de Usuario" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.pw, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.pw, new { htmlAttributes = new { @class = "form-control", @placeholder = "Contraseña" } })
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-12">
+            <input id="Login" runat="server" type="submit" class="btn-info" value="Ingresar" />
+        </div>
+    </div>
+</div>
+}
+    <div class="text-danger">
+        @TempData["MensajeLogin"]
+    </div>
+
+
+
+
+

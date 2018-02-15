@@ -1,0 +1,50 @@
+﻿@model List<WebApplication1.Models.notas>
+
+@{
+    ViewBag.Title = "crearNota";
+}
+
+<h2>Sus Notas</h2>
+
+<script language="Javascript">
+    function confirmar() {
+        var agree = confirm("¿Realmente desea eliminarlo? ");
+
+        if (agree) {
+            return true;
+        }
+        else {
+           
+        }
+    }
+</script>
+
+
+
+<div>
+    @Html.ActionLink("Agregar Nota", "Crear")
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Nombre")
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.idnotas }) |
+                @Html.ActionLink("Ver nota", "Mostrar", new { id = item.idnotas }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.idnotas })
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Salir", "../")
+</div>

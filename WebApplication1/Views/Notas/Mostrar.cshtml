@@ -1,0 +1,36 @@
+﻿@model WebApplication1.Models.notas
+
+<link href="css/lumen.min.css" rel="stylesheet" media="screen">
+
+@{
+    ViewBag.Title = "Mostrar";
+}
+<body>
+    <div class="form-horizontal" style="background-image:url(../../Imagenes/img2.jpg); text-decoration:underline" height="100%" width="100%">
+        <div class="form-group" align="center">
+            <font color="darkgrey">
+                <h3>Esta es su nota</h3>
+            </font>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div align="center">
+                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @readonly = "readonly", style = "font-weight:bold;align-content:center;", } })
+            </div>
+            <div align="center">
+                @Html.TextAreaFor(model => model.texto, 15, 50, new {  @readonly = true, style = "font-style:oblique;font-weight:bold;resize:none;", @class = "someClass" })
+            </div>
+        </div>
+        <hr />
+        @using (Html.BeginForm("IndexNotas", "Notas", FormMethod.Get))
+        {
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input id="boton" runat="server" type="submit" class="btn-info" value="Volver" />
+                </div>
+            </div>
+        }
+
+    </div>
+</body>
+   
